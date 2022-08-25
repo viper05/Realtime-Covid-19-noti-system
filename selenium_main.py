@@ -8,19 +8,23 @@ def notifyme(title,message):
     notification.notify(
         title = title,
         message = message,
-        app_icon = r"C:\Users\Rinku\Desktop\py\favicon.ico",
-        timeout = 10
+        app_icon = r"C:\Users\rinku\Desktop\My_code\projects\Realtime-Covid-19-noti-system\favicon.ico",
+        timeout = 7
         
     )
 
-driver = webdriver.Chrome('C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe')
+driver = webdriver.Chrome('C:\Program Files\Google\Chrome\Application\chromedriver.exe')
 
 driver.get('https://www.mohfw.gov.in/')
 content = driver.page_source
+# time.sleep(2)
 soup = BeautifulSoup(content,'html.parser')
-
+soup.prettify()
+# print(soup)
+# time.sleep(2)
 mydata = []
 st = 0
+# print(soup.findAll('tbody')[0])
 for tr in soup.find_all('tbody')[0]:
     st+=1
     mylist = []   
@@ -31,13 +35,14 @@ for tr in soup.find_all('tbody')[0]:
 
     if st >= 36:
         break
-    
 
 
-#for i in item:
-    #print(i)
 
-states = ['Rajasthan', 'Uttarakhand']
+# print(mydata)
+# #for i in item:
+#     #print(i)
+
+states = ['Rajasthan', 'Bihar']
 for item in mydata:
     
     #print(item[1])
@@ -48,5 +53,6 @@ for item in mydata:
         notifyme(ntitle,ntext)
         time.sleep(2)
 
-
+  
+# time.sleep(2)
 driver.close()
