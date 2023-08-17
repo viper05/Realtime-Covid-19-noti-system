@@ -13,7 +13,7 @@ def notifyme(title,message):
         
     )
 
-driver = webdriver.Chrome('C:\Program Files\Google\Chrome\Application\chromedriver.exe')
+driver = webdriver.Chrome('C:\Program Files\Google\Chrome\Application\chromedriver-win64\chromedriver.exe')
 
 driver.get('https://www.mohfw.gov.in/')
 content = driver.page_source
@@ -25,7 +25,7 @@ soup.prettify()
 mydata = []
 st = 0
 # print(soup.findAll('tbody')[0])
-for tr in soup.find_all('tbody')[0]:
+for tr in soup.find_all('tbody'):
     st+=1
     mylist = []   
     for td in tr:
