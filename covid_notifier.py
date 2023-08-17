@@ -38,6 +38,7 @@ def send_notification(state, total_cases, active_cases, recovered, deaths):
     notification.notify(
         title=title,
         message=message,
+        app_icon = r"C:\Users\rinku\Desktop\My_code\projects\Realtime-Covid-19-noti-system\favicon.ico",
         timeout=10  # Notification timeout in seconds
     )
 
